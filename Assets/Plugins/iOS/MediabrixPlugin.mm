@@ -694,7 +694,7 @@ extern "C" {
         [getPlugin() showAdWithIdentifier:mb_objcstring(identifer) willShowCallback:^(BOOL success, NSString *identifier, MediabrixPlugin *plugin) {
             unity_callback(willShowAdCallbackName, [identifier UTF8String]);
         } rewardsCallback:^(BOOL success, NSString *identifier, MediabrixPlugin *plugin) {
-			unity_callback(rewardDidChangeCallbackName, [identifer UTF8String]);
+			unity_callback(rewardDidChangeCallbackName, [identifier UTF8String]);
         } didCloseCallback:^(BOOL success, NSString *identifier, MediabrixPlugin *plugin) {
             unity_callback(adDidCloseCallbackName, [identifier UTF8String]);
         }];

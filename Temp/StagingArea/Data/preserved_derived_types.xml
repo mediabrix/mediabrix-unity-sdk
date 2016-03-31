@@ -1,0 +1,7 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="MediabrixPlugin" preserve="all"/>
+<type fullname="MediabrixPluginIOS" preserve="all"/>
+<type fullname="MainScene" preserve="all"/>
+</assembly>
+</linker>
