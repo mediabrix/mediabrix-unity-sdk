@@ -6,13 +6,13 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 	public static string serverURL = "http://mobile.mediabrix.com/v2/manifest/";
 	public static string appID = "TwwvxoFnJn";
 	
-	string ViewButton = "mig_rally";
-	string FlexButton = "mig_rescue";
-	string RewardButton = "mig_rewards";
+	string ViewButton = "Please Wait";
+	string FlexButton = "Please Wait";
+	string RewardButton = "Please Wait";
 	
-	const string ViewsIdentifier = "mig_rally";
-	const string FlexIdentifier = "mig_rescue";
-	const string RewardsIdentifier = "mig_rewards";
+	const string ViewsIdentifier = "Babel_Rally";
+	const string FlexIdentifier = "Babel_Rescue";
+	const string RewardsIdentifier = "Babel_Reward";
 
 	bool started = false;
 	bool viewFail = true;
@@ -22,6 +22,7 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 	// Use this for initialization
 	void Start () {
 		print ("MediabrixPlugin init");
+		MediabrixPlugin.SetVerbose (true);////This method is used enable/disables SDK logs. To turn off SDK logs SetVerbose to false. By default setDebug is set to true
 		MediabrixPlugin.Initialize (serverURL, appID, this);
 		
 	}
@@ -32,7 +33,6 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 	}
 
 	private void OnGUI(){
-
 
 		GUILayout.BeginHorizontal("box");
 		if (GUILayout.Button (ViewButton, GUILayout.Width (300), GUILayout.Height (300))) {
@@ -92,6 +92,9 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 
 	public void OnStarted(string status){
 		started = true;
+		ViewButton = "Babel_Rally";
+		FlexButton = "Babel_Rescue";
+		RewardButton = "Babel_Reward";
 		print ("MediabrixPlugin started");
 	}
 	
@@ -130,13 +133,13 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 	// When an ad closes this callback will be invoked.  The string parameter indicates the target of the ad unit. 
 	public void OnAdClosed(string target){
 		if (target.Equals (ViewsIdentifier)) {
-			ViewButton = "mig_rally";
+			ViewButton = "Babel_Rally";
 			viewFail = true;
 		} else if (target.Equals (FlexIdentifier)) {
-			FlexButton = "mig_rescue";
+			FlexButton = "Babel_Rescue";
 			flexFail = true;
 		} else if (target.Equals (RewardsIdentifier)) {
-			RewardButton = "mig_rewards";
+			RewardButton = "Babel_Reward";
 			rewardFail = true;
 		}
 	}
@@ -149,5 +152,9 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 	
 	public void OnAdShown(string target){
 		print ("ADSHOWN");
+	}
+
+	public void OnAdClicked(string target){
+		print ("Ad Cliked");
 	}
 }

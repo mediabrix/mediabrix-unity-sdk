@@ -64,5 +64,12 @@ public class MediabrixPluginAndroid : MonoBehaviour
 		MediabrixClass151.CallStatic("onDestroy");
 	}
 
+	public static void SetVerbose(bool debug){
+		if(debug)
+			MediabrixClass151.CallStatic("setDebug", "true");
+		else
+			MediabrixClass151.CallStatic("setDebug", "false");
+	}
+
 }
 #endif

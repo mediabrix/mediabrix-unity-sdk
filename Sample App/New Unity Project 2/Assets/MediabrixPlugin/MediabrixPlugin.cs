@@ -16,6 +16,7 @@ public interface MediaBrixAdEvents {
     void OnAdClosed(string zone);
     void OnAdReady(string zone);
 	void OnAdShown (string zone);
+	void OnAdClicked (string zone);
 }
 
 public class MediabrixPlugin : MonoBehaviour {
@@ -43,7 +44,10 @@ public class MediabrixPlugin : MonoBehaviour {
 	public static void Destroy() {
 		MediabrixPlatformPlugin.Destroy();
 	}
-	
+
+	public static void SetVerbose(bool debug){
+		MediabrixPlatformPlugin.SetVerbose (debug);
+	}
 }
 
 

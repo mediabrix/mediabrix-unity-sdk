@@ -17,6 +17,10 @@ public class MediabrixPluginIOS : MonoBehaviour
 	[DllImport ("__Internal")]
 	private static extern void mb_show_ad_with_identifier(string identifier);
 
+	[DllImport ("__Internal")]
+	private static extern void mb_set_verbose(string flag);
+
+
 	#endregion
 	
 	#region Declarations for non-native
@@ -60,6 +64,13 @@ public class MediabrixPluginIOS : MonoBehaviour
 	}
 	
 	public static void Destroy() {
+	}
+
+	public static void SetVerbose(bool verbose){
+		if(verbose)
+			mb_set_verbose("true");
+		else
+			mb_set_verbose("false");
 	}
 
     #endregion

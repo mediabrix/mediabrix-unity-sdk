@@ -38,9 +38,10 @@
     NSAssert1(appID, @"missing dictionary for key: appID in file MediaBrix.plist ->%@",environment);
     return appID;
 #else
-    return @"BYSYOJsMxP";
+    return @"";
 #endif
 }
+
 
 -(NSURL *)baseURL
 {

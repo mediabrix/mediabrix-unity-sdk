@@ -10,7 +10,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name="com.mediabrix.android.api.unitye.MediabrixUnityPlayerNativeActivity" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+		<activity android:name="com.mediabrix.android.api.unity.MediabrixUnityPlayerNativeActivity" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
 			<meta-data android:name="android.app.lib_name" android:value="unity" />
 			<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
 		</activity>
