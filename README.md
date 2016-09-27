@@ -34,7 +34,7 @@ For all integrations, `serverURL` and `appID` values will be provided to you by 
 
 **Note for iOS Integrations:** To set the `appID`, please locate MBSettingDelegate.m within your project. Within MBSettingDelegate.m, locate the `appID` method, and replace `BYSYOJsMxP` with the AppID that MediaBrix has provided for you.
 
-###MediaBrixAdEvents Callbak Methods
+###MediaBrixAdEvents Callback Methods
 ````
 public void OnStarted(string status){
 // MediaBrix SDK has been initialized successfully, and can now attempt to load ads
