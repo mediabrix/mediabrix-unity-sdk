@@ -1,4 +1,5 @@
 #MediaBrix Unity SDK
+##Please see "Testing / Release Settings" section for new guidelines on testing and deploying your integration.
 
 ##Getting Started
 Download the latest version of the MediaBrix Unity SDK: 
@@ -25,14 +26,26 @@ The script that will display ads, will need to implement `MediaBrixAdEvents` int
 
 ###Initialization
 To initialize the MediaBrix SDK you will need to create an instance of the `MediabrixPlugin` object in your script's `Start()` method:
-````
+```
 MediabrixPlugin.Initialize(string serverURL, string appID, this); 
 //this refers to the class that implementing MediaBrixAdEvents
-````
+```
 For all integrations, `serverURL` and `appID` values will be provided to you by MediaBrix during your onboarding process.
 
+###Testing / Release Settings
+
+To facilitate integrations and QA around the globe, MediaBrix has deployed an open Server URL for all of our world wide network partners to use while testing the MediaBrix SDK. This Test Sever URL will eliminate the need for proxying your device to the US and ensure your app receives 100% fill during testing.
+
+* **Test Sever URL:** `https://test-mobile.mediabrix.com/v2/manifest/`
+
+* **Production Sever URL:** `https://mobile.mediabrix.com/v2/manifest/`
+
+`https://test-mobile.mediabrix.com/v2/manifest/` should **ONLY** be used for testing purposes, as it will not deliver live campaigns to your app.
+
+It is important to ensure that after testing, the Release build of your app uses the Production Server URL. **If you release your app using the Test Server URL, your app will not receive payable MediaBrix ads.**
+
 ###MediaBrixAdEvents Callback Methods
-````
+```
 public void OnStarted(string status){
 // MediaBrix SDK has been initialized successfully, and can now attempt to load ads
 }
@@ -62,22 +75,22 @@ public void OnAdClicked(string target){
 public void OnAdClosed(string target){
 // The ad that was being displayed to the user has been closed
 }
-````
+```
 
 ###Load an Ad
 After receiving the `OnStarted()` callback, the SDK is now ready to load ads. To load an ad call the method below:
-````
+```
 MediabrixPlugin.Load(string zone, Dictionary<string,string> mbrixVars);
 // Zone will be provided by Mediabrix
 // mbrixVars represent Publisher Vars, mbrixVars can be null
-````
+```
 
 ###Show an Ad
 After receiving the `OnAdReady()` callback, the SDK is ready to show the ad that you have loaded. To show an ad call the method below:
-````
+```
 MediabrixPlugin.Show(string zone)
 // Zone represents the zone that has successfully been loaded
-````
+```
 
 ### Verbose Logging
 The MediaBrix SDK prints out logs to reflect what state it is in. To turn off logs printed out by the SDK use the following command:
