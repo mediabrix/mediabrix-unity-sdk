@@ -31,9 +31,6 @@ MediabrixPlugin.Initialize(string serverURL, string appID, this);
 ````
 For all integrations, `serverURL` and `appID` values will be provided to you by MediaBrix during your onboarding process.
 
-
-**Note for iOS Integrations:** To set the `appID`, please locate MBSettingDelegate.m within your project. Within MBSettingDelegate.m, locate the `appID` method, and replace `BYSYOJsMxP` with the AppID that MediaBrix has provided for you.
-
 ###MediaBrixAdEvents Callback Methods
 ````
 public void OnStarted(string status){
