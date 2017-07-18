@@ -80,9 +80,8 @@ public void OnAdClosed(string target){
 ### Load an Ad
 After receiving the `OnStarted()` callback, the SDK is now ready to load ads. To load an ad call the method below:
 ```
-MediabrixPlugin.Load(string zone, Dictionary<string,string> mbrixVars);
+MediabrixPlugin.Load(string zone);
 // Zone will be provided by Mediabrix
-// mbrixVars represent Publisher Vars, mbrixVars can be null
 ```
 
 ### Show an Ad
