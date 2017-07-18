@@ -37,20 +37,8 @@ public class MediabrixPluginIOS : MonoBehaviour
 		mb_initialize_unity(url, appId, callbacks.GetType().FullName);
 	}
 	
-	public static void Load(string target, Dictionary<string,string> mbrixVars) {
-		if (mbrixVars == null) {
-			mb_load_ad_with_identifier(target, null);
-			return;
-		}
-		
-		string builder = "";
-		foreach (KeyValuePair<string,string> kv in mbrixVars) {
-			builder += kv.Key;
-			builder += "|";
-			builder += kv.Value;
-			builder += "|";
-		}
-		mb_load_ad_with_identifier(target, builder);
+	public static void Load(string target) {
+		mb_load_ad_with_identifier(target, null);
 	}
 
 	public static void Show(string target) {

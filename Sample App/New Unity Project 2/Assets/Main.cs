@@ -4,15 +4,15 @@ using System.Collections;
 public class Main : MonoBehaviour, MediaBrixAdEvents {
 	
 	public static string serverURL = "http://mobile.mediabrix.com/v2/manifest/";
-	public static string appID = "TwwvxoFnJn";
+		public static string appID = "JxxEkB3BpF";
 	
 	string ViewButton = "Please Wait";
 	string FlexButton = "Please Wait";
 	string RewardButton = "Please Wait";
 	
-	const string ViewsIdentifier = "Babel_Rally";
-	const string FlexIdentifier = "Babel_Rescue";
-	const string RewardsIdentifier = "Babel_Reward";
+		const string ViewsIdentifier = "Rally_Standard_Video";
+		const string FlexIdentifier = "Rally_Full_Image";
+		const string RewardsIdentifier = "Rally_Static_Image";
 
 	bool started = false;
 	bool viewFail = true;
@@ -42,7 +42,7 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 			}else{
 				if(started){
 					print("MediabrixPlugin load");
-					MediabrixPlugin.Load(ViewsIdentifier, null);
+					MediabrixPlugin.Load(ViewsIdentifier);
 				}else{
 					print("MediabrixPlugin failed");
 				}
@@ -55,7 +55,7 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 			}else{
 				if(started){
 					print("MediabrixPlugin load");
-					MediabrixPlugin.Load(FlexIdentifier, null);
+					MediabrixPlugin.Load(FlexIdentifier);
 				}else{
 					print("MediabrixPlugin failed");
 				}
@@ -68,7 +68,7 @@ public class Main : MonoBehaviour, MediaBrixAdEvents {
 			}else{
 				if(started){
 					print("MediabrixPlugin load");
-					MediabrixPlugin.Load(RewardsIdentifier,null);
+					MediabrixPlugin.Load(RewardsIdentifier);
 				}else{
 					print("MediabrixPlugin failed");
 				}

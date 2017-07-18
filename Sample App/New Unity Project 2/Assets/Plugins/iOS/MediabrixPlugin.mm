@@ -7,8 +7,6 @@
 //
 
 #import "MediabrixPlugin.h"
-#import "MBSettingDelegate.h"
-#import "MediaBrix.h"
 #import <objc/message.h>
 
 static const char* serviceReadyCallbackName     = "OnStarted";
@@ -80,12 +78,13 @@ extern "C" {
     }
     
     void mb_load_ad_with_identifier(const char* identifer, const char* key_value_pairs_null_terminated) {
-        NSDictionary* adData = mb_ComponentSeparatedKeyValueFromStringWithSeparator(key_value_pairs_null_terminated, "|");
-        [[MediaBrix sharedInstance] loadAdWithIdentifier:mb_objcstring(identifer) adData:adData withViewController:nil];
+        
+        [[MediaBrix sharedInstance] loadAdWithIdentifier:mb_objcstring(identifer) withViewController:nil];
     }
     
     void mb_show_ad_with_identifier(const char* identifer, void * context) {
-        [[MediaBrix sharedInstance] showAdWithIdentifier:mb_objcstring(identifer) fromViewController:nil reloadWhenFinish:NO];
+        [[MediaBrix sharedInstance] showAdWithIdentifier:mb_objcstring(identifer) fromViewController:[UIApplication sharedApplication].keyWindow.rootViewController reloadWhenFinish:NO];
+        
     }
     
     void mb_set_verbose(const char* flag){
@@ -98,7 +97,7 @@ extern "C" {
 
 #pragma mark - <MediaBrixDelegate>
 - (void)mediaBrixStarted {
-     unity_callback(serviceReadyCallbackName, "start");
+    unity_callback(serviceReadyCallbackName, "start");
 }
 
 - (void)mediaBrixAdWillLoad:(NSString *)identifier {
@@ -116,7 +115,7 @@ extern "C" {
 }
 
 - (void)mediaBrixAdShow:(NSString *)identifier {
-     unity_callback(willShowAdCallbackName, [identifier UTF8String]);
+    unity_callback(willShowAdCallbackName, [identifier UTF8String]);
     // Invoked when ad is being shown to the user
 }
 
@@ -138,4 +137,3 @@ extern "C" {
 @end
 
 #endif
-

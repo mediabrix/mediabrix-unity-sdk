@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MediaBrix.h"
 
-@interface MediabrixPlugin : NSObject
+@interface MediabrixPlugin : NSObject <MediaBrixDelegate>
 @end

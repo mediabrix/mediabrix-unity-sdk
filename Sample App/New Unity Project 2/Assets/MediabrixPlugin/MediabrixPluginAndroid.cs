@@ -32,20 +32,8 @@ public class MediabrixPluginAndroid : MonoBehaviour
 		MediabrixClass151.CallStatic("initialize", url, appId, callbacks.GetType().FullName);
 	}
 	
-	public static void Load(string target, Dictionary<string,string> mbrixVars) {
-		if (mbrixVars == null) {
-			MediabrixClass151.CallStatic("load", target, null);
-			return;
-		}
-		
-		string builder = "";
-		foreach (KeyValuePair<string,string> kv in mbrixVars) {
-			builder += kv.Key;
-			builder += "|";
-			builder += kv.Value;
-			builder += "|";
-		}
-		MediabrixClass151.CallStatic("load", target, builder);
+	public static void Load(string target) {
+		MediabrixClass151.CallStatic("load", target, null);
 	}
 
 	public static void Show(string target) {

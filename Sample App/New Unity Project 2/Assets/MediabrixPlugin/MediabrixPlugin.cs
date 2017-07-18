@@ -25,8 +25,8 @@ public class MediabrixPlugin : MonoBehaviour {
         MediabrixPlatformPlugin.Initialize(url, appId, callbacks);
     }
 
-	public static void Load(string target, Dictionary<string,string> mbrixVars) {
-		MediabrixPlatformPlugin.Load(target, mbrixVars);
+	public static void Load(string target) {
+		MediabrixPlatformPlugin.Load(target);
 	}
 
 	public static void Show(string target) {
