@@ -49,7 +49,7 @@ public class MediabrixPluginAndroid : MonoBehaviour
 	}
 	
 	public static void Destroy() {
-		MediabrixClass151.CallStatic("onDestroy");
+		// MediabrixClass151.CallStatic("onDestroy");
 	}
 
 	public static void SetVerbose(bool debug){
