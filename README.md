@@ -32,17 +32,9 @@ MediabrixPlugin.Initialize(string serverURL, string appID, this);
 ```
 For all integrations, `serverURL` and `appID` values will be provided to you by MediaBrix during your onboarding process.
 
-### Testing / Release Settings
+### Testing Outside of the US
 
-To facilitate integrations and QA around the globe, MediaBrix has deployed an open Server URL for all of our world wide network partners to use while testing the MediaBrix SDK. This Test Sever URL will eliminate the need for proxying your device to the US and ensure your app receives 100% fill during testing.
-
-* **Test Sever URL:** `https://test-mobile.mediabrix.com/v2/manifest/`
-
-* **Production Sever URL:** `https://mobile.mediabrix.com/v2/manifest/`
-
-`https://test-mobile.mediabrix.com/v2/manifest/` should **ONLY** be used for testing purposes, as it will not deliver live campaigns to your app.
-
-It is important to ensure that after testing, the Release build of your app uses the Production Server URL. **If you release your app using the Test Server URL, your app will not receive payable MediaBrix ads.**
+Due to changes to EU Law (GDPR), Verve video ads only display in the United States and Canada. For 100% fill when requesting ads outside of the US, we suggest you proxy to the US while testing your integration.
 
 ### MediaBrixAdEvents Callback Methods
 ```
